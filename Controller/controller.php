@@ -10,6 +10,7 @@ class controller {
 public $mod ;
 public $contDB ;
 
+
 public function init(){
     $this->mod = new model ;
     $this->contDB = $this->mod->db ;

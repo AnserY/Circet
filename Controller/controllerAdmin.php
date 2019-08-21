@@ -15,6 +15,7 @@ public function update($date,$name,$pathfile){
   $except = sizeof($date);
   $index = 0 ;
 
+ 
   foreach ($date as $key => $value) {
       $stmt = $this->contDB->prepare('INSERT INTO users (Date,CheminFichier,NomFichier) VALUES (:Date,:CheminFichier,:NomFichier)');
       if($stmt->execute([
@@ -28,17 +29,6 @@ public function update($date,$name,$pathfile){
   }
     return $result==$except?"ok":"err";
 }
-
-
-/*public function test() {
-    $stmt = $this->contDB->prepare("SELECT * FROM users");
-    $stmt->execute();
-    $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-    $result = $stmt->fetchAll() ;
-
-  }
-*/
-
 
 
 

@@ -23,7 +23,7 @@ public function allDate(){
 
 public function allInformation($date){
 
-  $stmt = $this->contDB->prepare("select id ,Date,NomFichier from users where Date = '".$date."'");
+  $stmt = $this->contDB->prepare("select id ,Date,NomFichier,CheminFichier from users where Date = '".$date."'");
   $stmt->execute();
   $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
   $result = $stmt->fetchAll();
@@ -40,24 +40,25 @@ public function findFile($id){
   return $result;
 }
 
+public function searchByDate($date){
 
-/*public function test() {
-    $stmt = $this->contDB->prepare("SELECT * FROM users");
-    $stmt->execute();
-    $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-    $result = $stmt->fetchAll() ;
+  $stmt = $this->contDB->prepare("select id,Date,NomFichier from users where Date = '".$date."'");
+  $stmt->execute();
+  $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+  $result = $stmt->fetchAll();
+  return $result;
+}
 
+
+public function readNote(){
+  $my_file = __DIR__.'/note.txt';
+  if (' '==file_get_contents($my_file)) {
+    return " ";
   }
-*/
-
-
-
-
-
-
-
-
-
+  $handle = fopen($my_file, 'r');
+  $data = fread($handle,filesize($my_file));
+  return $data;
+}
 
 
 }

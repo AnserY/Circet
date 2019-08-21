@@ -19,7 +19,7 @@ function download($id){
         header("Cache-Control: private",false);
         header("Content-Description: File Transfer");
         header("Content-Disposition: attachment; filename=\"$file\"");
-        header("Content-Type:  image/png");
+        header("Content-Type:  application/vnd.ms-excel");
         header("Content-Transfer-Encoding: binary");
         header("Content-Length: ".filesize($path));
         readfile($path);

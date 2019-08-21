@@ -2,7 +2,6 @@
 <?php
 require_once(dirname(dirname(__FILE__)).'/Controller/controllerUser.php');
 $userCon = new controllerUser ;
-
 ?>
 
 <html lang="en" dir="ltr">
@@ -33,6 +32,18 @@ $userCon = new controllerUser ;
     }
     </script>
 
+    <script type="text/javascript">
+
+      $(document).ready(function(){
+        $("#recherche").on('keypress',function(e){
+          if(e.which == 13){
+            showInformation($("#recherche").val());
+          }
+      });
+      });
+
+    </script>
+
 
     <title>CircetUser</title>
   </head>
@@ -42,6 +53,13 @@ $userCon = new controllerUser ;
        <img src="/docs/4.3/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="" >
      </a>
    </nav>
+
+
+<span style="font-size:18px;color:#EA4335"> <?php echo $userCon->readNote(); ?> </span>
+<div class="d-flex flex-row-reverse">
+  <input type="text" id="recherche" name="recherche" placeholder="Recherche" class="p-2">
+</div>
+
 
 <div class="position-static">
 

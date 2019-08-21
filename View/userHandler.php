@@ -29,11 +29,12 @@ $userHandlerCon = new controllerUser ;
    <?php //print_r($result) ?>
    <?php foreach ($result as $keys => $values): ?>
      <tr>
-       <?php foreach ($values as $key => $value): ?>
-          <th scope="row">   <?php print_r($value) ?>  </th>
+       <?php foreach ($values as $key => $value): if($key == 'CheminFichier') continue ; ?>
+          <th scope="row">   <?php print_r($value); ?>  </th>
        <?php endforeach; ?>
-           <th scope="row"><a href=<?php echo 'Controller/controllerUserHandler.php?id='.$values['id']; ?>> Afficher </th>
-           <th scope="row"><a href=<?php echo 'Controller/controllerUserHandler.php?id='.$values['id'];?>> Télecharger </a></th>
+          <?php $fileWithoutExt = preg_replace('/\\.[^.\\s]{3,4}$/', '', $values['CheminFichier']); ?>
+           <th scope="row"><a href="<?php echo 'display/'.$values['CheminFichier'].'/'.$fileWithoutExt.'.html'; ?>" target="_blank"> Afficher </th>
+           <th scope="row"><a href="<?php echo 'Controller/controllerUserHandler.php?id='.$values['id'];?>"> Télecharger </a></th>
      </tr>
    <?php endforeach; ?>
 
