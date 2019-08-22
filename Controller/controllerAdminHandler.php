@@ -68,7 +68,7 @@ function postFile($mycontAdmin){
       array_push($feuille,$value);
       }
     }
-    
+
 
  $return = $mycontAdmin->update($date,$name,$uploaded) ;
 
@@ -77,6 +77,7 @@ function postFile($mycontAdmin){
             $output=shell_exec('mkdir ../View/display/'.$value.' 2>&1');
             $output1=shell_exec('cd uploads && cp '.$value.' ../../View/display/'.$value.' 2>&1');
             $output2=shell_exec('cd ../View/display/'.$value.' && export HOME=/tmp && soffice --headless --convert-to html '.$value.' && rm '.$value.' 2>&1');
+      
         }
     }
 
