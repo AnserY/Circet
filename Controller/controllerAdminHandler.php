@@ -70,19 +70,25 @@ function postFile($mycontAdmin){
     }
 
 
+
  $return = $mycontAdmin->update($date,$name,$uploaded) ;
 
     if ( $return == "ok") {
           foreach ($uploaded as $key => $value) {
+            $valueHtml = preg_replace('/\\.[^.\\s]{3,4}$/', '', $value);
             $output=shell_exec('mkdir ../View/display/'.$value.' 2>&1');
             $output1=shell_exec('cd uploads && cp '.$value.' ../../View/display/'.$value.' 2>&1');
             $output2=shell_exec('cd ../View/display/'.$value.' && export HOME=/tmp && soffice --headless --convert-to html '.$value.' && rm '.$value.' 2>&1');
-      
+            $output3=shell_exec('cd ../View/display/ && ./script.py '.$value.'/'.$valueHtml.'.html '.$value.' '.$valueHtml.'1 '.$feuille[$key].' 2>&1');
+            $output4=shell_exec('cd ../View/display/'.$value.' && rm '.$valueHtml.'.html 2>&1');
+            print_r($output3);
+            print_r($output4);
+
+
         }
     }
 
   echo $return;
-  print_r($_FILES['file']['tmp_name']);
 }
 
 
