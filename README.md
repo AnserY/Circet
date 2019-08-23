@@ -12,7 +12,7 @@ Utilisation du pattern MVC avec quelques touche personnelles :
 
   - Controller :
     * *Handler.php : Gere les differentes requetes ajax .
-    *  note.txt : Fichier tempo qui permet de gerer la fonctionnalite "Mettre une note" .
+    *  note.txt : Fichier tempo qui permet de gerer la fonctionnalite "Ajoute une note" .
 
   - uploads : Dossier qui contient les fichiers uploadé .
 
@@ -21,7 +21,7 @@ Utilisation du pattern MVC avec quelques touche personnelles :
 ## prérequis
 
   - Base de donne :
-    Script de creation de la base de donne :
+      Script de creation de la base de donne :
     ```
     CREATE DATABASE `Circet` /*!40100 DEFAULT CHARACTER SET latin1 */
 
