@@ -20,8 +20,8 @@ Utilisation du pattern MVC avec quelques touche personnelles :
 
 ## prérequis
 
-  - Base de donne :
-      Script de creation de la base de donne :
+  - Base de donne :<br/>
+    Script de creation de la base de donne :
     ```
     CREATE DATABASE `Circet` /*!40100 DEFAULT CHARACTER SET latin1 */
 
