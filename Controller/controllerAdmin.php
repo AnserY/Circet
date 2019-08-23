@@ -10,12 +10,15 @@ function __construct(){
  }
 
 
+ /*
+ * update la base de donne
+ */
 public function update($date,$name,$pathfile){
   $result=0;
   $except = sizeof($date);
   $index = 0 ;
 
- 
+
   foreach ($date as $key => $value) {
       $stmt = $this->contDB->prepare('INSERT INTO users (Date,CheminFichier,NomFichier) VALUES (:Date,:CheminFichier,:NomFichier)');
       if($stmt->execute([

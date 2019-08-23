@@ -26,7 +26,7 @@ $userHandlerCon = new controllerUser ;
    </tr>
  </thead>
  <tbody>
-   <?php //print_r($result) ?>
+
    <?php foreach ($result as $keys => $values): ?>
      <tr>
        <?php foreach ($values as $key => $value): if($key == 'CheminFichier') continue ; ?>
