@@ -4,7 +4,7 @@ Application Web qui permet a un administrateur d'upload des fichiers excel et a 
 
 ## Structure du projet
 
-Utilisation du pattern MVC avec quelques touche personnelles :
+Utilisation du pattern MVC avec quelques touche personnelles : \n
 A partir de la racine du site :
 
   - Config :
