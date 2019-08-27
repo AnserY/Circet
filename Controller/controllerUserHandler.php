@@ -25,9 +25,10 @@ function download($id){
         readfile($path);
       exit;
   }else {
-    echo "y'a un probleme";
+    echo "un probleme est survenu ";
   }
 }
+
 
 if(isset($_GET['id'])){
    download($_GET['id']);

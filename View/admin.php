@@ -6,106 +6,16 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-    <script type="text/javascript">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script lang="javascript" src="Media/js/js-xlsx/dist/xlsx.full.min.js"></script>
+<script src='Media/js/js1.js' type="text/javascript"></script>
+<script src='Media/js/js2.js'  type="text/javascript"></script>
+<script src='Media/js/js3.js'  type="text/javascript"></script>
+<script src='Media/js/js4.js'  type="text/javascript" ></script>
 
-      $(document).ready(function(){
-
-      var max_fields = 10 ;
-      var add_input_button = $('.add_input_button');
-      var field_wrapper  = $('.field_wrapper');
-      var input_count = 1;
-
-      //add
-      $(add_input_button).click(function(){
-        if(input_count < max_fields){
-          input_count ++;
-
-        $(field_wrapper).append('<div class="form-row"><div class="row"><div class="col"><input type="text" class="form-control" id="date1"  name="date" placeholder="AAAA/MM/JJ" required></div><div class="col"><input type="text" class="form-control" id="name1" name="name" placeholder="Nom du fichier" required></div>  <div class="col input-group-prepend"><input type="file" class="custom-file-input" id="file1" name="file" aria-describedby="inputGroupFileAddon01" style="max-width: 250px;" required><label class="custom-file-label" for="inputGroupFile01">Choisir le fichier</label></div><div class="col"><select id="feuille1" name="feuille1" class="form-control" required><option selected>Rapport</option><option>National</option><option>Evolution National</option><option>Centre Est</option><option>MED</option><option>SO</option><option>COR</option><option>OUEST</option><option>NE</option></select></div><div class="col"><a href="javascript:void(0);" class="remove_input_button" title="remove field"><img src="https://img.icons8.com/color/38/000000/minus.png"/></a></div></div></div>');
-
-        $('#date1').attr('name','date'+input_count);
-        $('#date1').attr('id','date'+input_count);
-        $('#name1').attr('name','name'+input_count);
-        $('#name1').attr('id','name'+input_count);
-        $('#file1').attr('name','file'+input_count);
-        $('#file1').attr('id','file'+input_count);
-        $('#feuille1').attr('name','feuille'+input_count);
-        $('#feuille1').attr('id','feuille'+input_count);
-
-      }
-      });
-    //remove
-      $(field_wrapper).on('click', '.remove_input_button', function(e){
-        e.preventDefault();
-        $(this).parent('div').parent().parent().remove();
-        input_count--;
-        });
-      });
-
-    </script>
-
-    <script type="text/javascript">
-
-    $(document).ready(function(e){
-
-    $("#fupForm").submit(function(e){
-        e.preventDefault();
-        $.ajax({
-            type: 'POST',
-            url: 'Controller/controllerAdminHandler.php',
-            data: new FormData(this),
-            contentType: false,
-            cache: false,
-            processData:false,
-            beforeSend: function(){
-                $('.submitBtn').attr("disabled","disabled");
-                $('#fupForm').css("opacity",".5");
-            },
-            success: function(msg){
-              alert(msg);
-              $('.statusMsg').html('');
-                if(msg == 'ok'){
-                    $('#fupForm')[0].reset();
-                    $('.statusMsg').html('<span style="font-size:18px;color:#34A853">Données soumises avec succès.</span>');
-                }else{
-                    $('.statusMsg').html('<span style="font-size:18px;color:#EA4335">Un problème est survenu, veuillez réessayer.</span>');
-                }
-                $('#fupForm').css("opacity","");
-                $(".submitBtn").removeAttr("disabled");
-                $("input").val('');
-            }
-        });
-    });
-
-  });
-    </script>
-
-<script type="text/javascript">
-
-$(document).ready(function(e){
-
-$("#check").change(function(){
-    if (this.checked) {
-        $("[id^=date]").removeAttr("required");
-        $("[id^=name]").removeAttr("required");
-        $("[id^=file]").removeAttr("required");
-        $("[id^=feuille]").removeAttr("required");
-    }else {
-      $("[id^=date]").attr("required","required");
-      $("[id^=name]").attr("required","required");
-      $("[id^=file]").attr("required","required");
-      $("[id^=feuille]").attr("required","required");
-    }
-});
-});
-
-</script>
-
-
-
-    <title>CircetAdmin</title>
+  <title>CircetAdmin</title>
   </head>
   <body>
 
@@ -142,15 +52,7 @@ $("#check").change(function(){
 
 <div class="col">
   <select id="feuille" name="feuille" class="form-control" required>
-          <option selected>Rapport</option>
-          <option>National</option>
-          <option>Evolution National</option>
-          <option>Centre Est</option>
-          <option>MED</option>
-          <option>SO</option>
-          <option>COR</option>
-          <option>OUEST</option>
-          <option>NE</option>
+
   </select>
 </div>
 
@@ -175,8 +77,6 @@ $("#check").change(function(){
 </form>
 
 </div>
-
-
 
 <div class="fixed-bottom">
 <footer class="page-footer font-small blue">

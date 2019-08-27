@@ -18,9 +18,10 @@ Utilisation du pattern MVC avec quelques touche personnelles :
 
   - View/display : Dossier qui contient les fichiers uploadé en .html  
 
-## prérequis
+## Prérequis
 
   - Base de donne :<br/>
+
     Script de creation de la base de donne :
     ```
     CREATE DATABASE `Circet` /*!40100 DEFAULT CHARACTER SET latin1 */

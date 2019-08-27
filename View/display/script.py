@@ -1,7 +1,7 @@
 #!/home/anser/anaconda2/bin/python2.7
 
 from sys import argv
-import urllib2,codecs
+import codecs
 
 
 

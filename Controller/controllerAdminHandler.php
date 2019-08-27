@@ -96,7 +96,7 @@ function postFile($mycontAdmin){
 function postNote(){
   $my_file = 'note.txt';
   $handle = fopen($my_file, 'w') or die('Impossible d\'ouvrir le fichier :  '.$my_file);
-  $data = $_POST['note'];
+  $data = strip_tags($_POST['note']);
   if($data==""){
     $data =" ";
   }
@@ -105,7 +105,6 @@ function postNote(){
 
 
 if(!empty($_POST["date"]) and empty($_POST["note"])){
-  print_r($_POST);
   postFile($mycontAdmin);
 }else if (!empty($_POST["date"]) and !empty($_POST["note"]) ){
   postNote();
