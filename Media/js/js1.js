@@ -10,7 +10,7 @@ $(document).ready(function() {
         if (input_count < max_fields) {
             input_count++;
 
-            $(field_wrapper).append('<div class="form-row"><div class="row"><div class="col"><input type="text" class="form-control" id="date1"  name="date" placeholder="AAAA/MM/JJ" required></div><div class="col"><input type="text" class="form-control" id="name1" name="name" placeholder="Nom du fichier" required></div>  <div class="col input-group-prepend"><input type="file" class="custom-file-input" id="file1" name="file" aria-describedby="inputGroupFileAddon01" style="max-width: 250px;" required><label class="custom-file-label" for="inputGroupFile01">Choisir le fichier</label></div><div class="col"><select id="feuille1" name="feuille1" class="form-control" required></select></div><div class="col"><a href="javascript:void(0);" class="remove_input_button" title="remove field"><img src="https://img.icons8.com/color/38/000000/minus.png"/></a></div></div></div>');
+            $(field_wrapper).append('<div class="form-row"><div class="row"><div class="col"><input type="text" class="form-control" id="date1"  name="date" placeholder="AAAA/MM/JJ" style="width:150px;" style="max-width: 150px;" required></div><div class="col"><input type="text" class="form-control" id="name1" name="name" placeholder="Nom du fichier" style="width:150px;" style="max-width: 150px;" required></div>  <div class="col input-group-prepend"><input type="file" class="custom-file-input" id="file1" name="file" aria-describedby="inputGroupFileAddon01" style="width:200px;" style="max-width: 200px;" required><label class="custom-file-label" for="inputGroupFile01">Choisir le fichier</label></div><div class="col"><select id="feuille1" name="feuille1" class="form-control" style="width:200px;" style="max-width: 200px;" required></select></div><div class="col"><a href="javascript:void(0);" class="remove_input_button" title="remove field"><img src="https://img.icons8.com/color/38/000000/minus.png"/></a></div></div></div>');
 
             $('#date1').attr('name', 'date' + input_count);
             $('#date1').attr('id', 'date' + input_count);
@@ -22,7 +22,7 @@ $(document).ready(function() {
             $('#feuille1').attr('id', 'feuille' + input_count);
 
         }
-        $.getScript("js/test.js");
+        $.getScript("Media/js/js4.js");
     });
     //remove
     $(field_wrapper).on('click', '.remove_input_button', function(e) {

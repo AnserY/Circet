@@ -1,0 +1,48 @@
+html {
+     height: 100%;
+}
+ * {
+     margin: 0;
+     padding: 0;
+}
+ body {
+     font: normal 80% Arial, Helvetica, sans-serif;
+     color: #000;
+     background: #E1E1E1;
+}
+ #main {
+     background: transparent;
+}
+ header {
+     height: 100px;
+     background: #F79F00;
+     background: -moz-linear-gradient(#F79F00, #F05A03);
+     background: -o-linear-gradient(#F79F00, #F05A03);
+     background: -webkit-linear-gradient(#FFC270, #F05A03);
+     -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 5px;
+     -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 5px;
+     box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 5px;
+}
+ #main, header, #banner, #site_content {
+     margin-left: auto;
+     margin-right: auto;
+}
+ #banner {
+     width: 940px;
+     position: relative;
+     height: 50px;
+     padding: 15px 0 0 0;
+     background: transparent;
+}
+ #site_content {
+     width: 90%;
+     background: #FFF;
+     height: 100vh;
+     border-radius: 0px 0px 15px 15px;
+     -moz-border-radius: 0px 0px 15px 15px;
+     -webkit-border: 0px 0px 15px 15px;
+     -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 5px;
+     -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 5px;
+     box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 5px;
+}
+ 

@@ -11,31 +11,37 @@ $userCon = new controllerUser ;
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="Media/js/js5.js" type="text/javascript"></script>
     <script src="Media/js/js6.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="Media/css/css1.css">
 
 
     <title>CircetUser</title>
-  </head>
-  <body>
-  <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-     <a class="navbar-brand" href="#">
-       <img src="/docs/4.3/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="" >
-     </a>
-   </nav>
+</head>
+
+<body >
+
+<div id="main">
+
+<header>
+  <div id="banner">
+  <div >
+      <img src="Media/img/logoCircet.png" alt="">
+  </div>
+
+  </div>
+</header>
 
 
-<span style="font-size:18px;color:#EA4335"> <?php echo $userCon->readNote(); ?> </span>
-<div class="d-flex flex-row-reverse">
-  <input type="text" id="recherche" name="recherche" placeholder="Recherche" class="p-2">
-</div>
+<div id="site_content">
 
-
-<div class="position-static">
-
+  <span style="font-size:18px;color:#EA4335"> <?php echo $userCon->readNote(); ?> </span>
+  <div class="d-flex flex-row-reverse">
+    <input type="text" id="recherche" name="recherche" placeholder="Recherche" class="p-2">
+  </div>
 
 <pre> </pre>
 
-    <select class="form-control" onchange="showInformation(this.value)">
-     <option>Selectionné une date </option>
+<select class="form-control" onchange="showInformation(this.value)" style="font: normal 80% Arial, Helvetica, sans-serif; font-size: 15px;">
+<option>Selectionné une date </option>
      <?php
           $row = $userCon->allDate();
           foreach ($row as $keys => $values) {
@@ -48,10 +54,13 @@ $userCon = new controllerUser ;
 
 <div id="txtHint">les informations vont etre affichés ici .... </div>
 
+
+
 </div>
 
+</div>
+</div>
 
-<div class="fixed-bottom">
 
   <footer class="page-footer font-small blue">
 
@@ -62,7 +71,6 @@ $userCon = new controllerUser ;
 
   </footer>
 
-</div>
 
   </body>
 

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 
+ *
  */
 class Config
 {
@@ -15,7 +15,6 @@ static $database = array(
 			'password'	=> 'Beats+ipod09'
 		)
 	);
-
 
 
 }
