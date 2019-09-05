@@ -23,7 +23,8 @@ public function allDate(){
 
 public function allInformation($date){
 
-  $stmt = $this->contDB->prepare("select id ,Date,NomFichier,CheminFichier from users where Date = '".$date."'");
+  $stmt = $this->contDB->prepare("select id ,Date,NomFichier,CheminFichier from users where Date =:date ");
+  $stmt->bindValue(':date',$date);
   $stmt->execute();
   $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
   $result = $stmt->fetchAll();
@@ -33,7 +34,8 @@ public function allInformation($date){
 
 public function findFile($id){
 
-  $stmt = $this->contDB->prepare("select CheminFichier from users where id = '".$id."'");
+  $stmt = $this->contDB->prepare("select CheminFichier from users where id = :id");
+  $stmt->bindValue(':id',$id);
   $stmt->execute();
   $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
   $result = $stmt->fetchAll();
@@ -42,7 +44,8 @@ public function findFile($id){
 
 public function searchByDate($date){
 
-  $stmt = $this->contDB->prepare("select id,Date,NomFichier from users where Date = '".$date."'");
+  $stmt = $this->contDB->prepare("select id,Date,NomFichier from users where Date = :date");
+  $stmt->bindValue(':data',$date);
   $stmt->execute();
   $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
   $result = $stmt->fetchAll();

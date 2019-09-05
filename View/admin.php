@@ -1,21 +1,7 @@
 <!DOCTYPE html>
 <?php
   require_once(dirname(dirname(__FILE__)).'/Controller/controllerAdmin.php');
-
-  $AUTH_USER = 'circet';
-  $AUTH_PASS = 'circet';
-  header('Cache-Control: no-cache, must-revalidate, max-age=0');
-  $has_supplied_credentials = !(empty($_SERVER['PHP_AUTH_USER']) && empty($_SERVER['PHP_AUTH_PW']));
-  $is_not_authenticated = (
-    !$has_supplied_credentials ||
-    $_SERVER['PHP_AUTH_USER'] != $AUTH_USER ||
-    $_SERVER['PHP_AUTH_PW']   != $AUTH_PASS
-  );
-  if ($is_not_authenticated) {
-    header('HTTP/1.1 401 Authorization Required');
-    header('WWW-Authenticate: Basic realm="Access denied"');
-    exit;
-  }
+  require_once(dirname(dirname(__FILE__)).'/Config/authentif.php');
 ?>
 
 <html lang="en" dir="ltr">
@@ -23,12 +9,17 @@
     <meta charset="utf-8">
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script lang="javascript" src="Media/js/js-xlsx/dist/xlsx.full.min.js"></script>
 <script src='Media/js/js1.js' type="text/javascript"></script>
 <script src='Media/js/js2.js'  type="text/javascript"></script>
 <script src='Media/js/js3.js'  type="text/javascript"></script>
 <script src='Media/js/js4.js'  type="text/javascript"></script>
+<script src='Media/js/js7.js'  type="text/javascript"></script>
+
 <link rel="stylesheet" href="Media/css/css1.css">
 
 

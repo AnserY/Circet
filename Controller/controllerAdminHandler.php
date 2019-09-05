@@ -4,7 +4,7 @@ require_once('controllerAdmin.php');
 
 $mycontAdmin = new controllerAdmin ;
 
-function str_to_noaccent($str)
+function str_filtre($str)
 {
     $url = $str;
     $url = preg_replace('#Ç#', 'C', $url);
@@ -21,6 +21,7 @@ function str_to_noaccent($str)
     $url = preg_replace('#Ù|Ú|Û|Ü#', 'U', $url);
     $url = preg_replace('#ý|ÿ#', 'y', $url);
     $url = preg_replace('#Ý#', 'Y', $url);
+    $url = preg_replace('/[\x00-\x1F\x7F]/', '', $url);
 
     return ($url);
 }
@@ -39,10 +40,12 @@ function postFile($mycontAdmin){
 
   foreach ($_FILES as $key => $value){
     if (preg_match($pattern2,$key)){
+
         if(isset($value["type"])){
-          $value["name"]=str_to_noaccent(str_replace(' ','',$value["name"]));
+          $value["name"]=str_filtre(str_replace(' ','',$value["name"]));
           $filename = time().'_'.$value["name"];
           $valid_extensions = array('xlsx','xlsm');
+          $headers = apache_request_headers();
           $temporary = explode(".",$value["name"]);
           $file_extension = end($temporary);
           if(in_array($file_extension,$valid_extensions)){
@@ -51,27 +54,24 @@ function postFile($mycontAdmin){
             if(move_uploaded_file($sourcePath,$targetPath)){
                 array_push($uploaded,$filename);
             }
-          }else {
-                die();
-        }
+          }
       }
     }
   }
   foreach ($_POST as $key => $value) {
+
      if(preg_match($pattern,$key)){
-      array_push($name,$value);
+       array_push($name,str_filtre($value));
       }
       if (preg_match($pattern1,$key)) {
-      array_push($date,$value);
+      array_push($date,str_filtre($value));
       }
       if (preg_match($pattern3,$key)) {
-      array_push($feuille,$value);
+      array_push($feuille,str_filtre($value));
       }
     }
 
-
-
- $return = $mycontAdmin->update($date,$name,$uploaded) ;
+ $return=$mycontAdmin->update($date,$name,$uploaded);
 
     if ( $return == "ok") {
           foreach ($uploaded as $key => $value) {

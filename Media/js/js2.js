@@ -19,7 +19,9 @@ $(document).ready(function(e) {
                 if (msg == 'ok') {
                     $('#fupForm')[0].reset();
                     $('.statusMsg').html('<span style="font-size:18px;color:#34A853">Données soumises avec succès.</span>');
-                } else {
+                } else if (msg='mauvaise extension') {
+                  $('.statusMsg').html('<span style="font-size:18px;color:#EA4335">Un problème est survenu, veuillez vérifier l\'extension des fichiers.</span>');
+                }else {
                     $('.statusMsg').html('<span style="font-size:18px;color:#EA4335">Un problème est survenu, veuillez réessayer.</span>');
                 }
                 $('#fupForm').css("opacity", "");

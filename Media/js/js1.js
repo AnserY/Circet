@@ -5,7 +5,7 @@ $(document).ready(function() {
     var field_wrapper = $('.field_wrapper');
     var input_count = 1;
 
-    //add
+    //Ajout
     $(add_input_button).click(function() {
         if (input_count < max_fields) {
             input_count++;
@@ -23,8 +23,9 @@ $(document).ready(function() {
 
         }
         $.getScript("Media/js/js4.js");
+        $.getScript("Media/js/js7.js");
     });
-    //remove
+    //Supp
     $(field_wrapper).on('click', '.remove_input_button', function(e) {
         e.preventDefault();
         $(this).parent('div').parent().parent().remove();

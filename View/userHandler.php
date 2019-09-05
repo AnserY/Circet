@@ -13,7 +13,7 @@ $userHandlerCon = new controllerUser ;
   <body>
 
 <?php
- $date = date('Y-m-d H:i:s' , strtotime($_GET['q']));
+ $date = date('Y-m-d H:i:s' , strtotime(strip_tags($_GET['q'])));
  $result = $userHandlerCon->allInformation($date);
  ?>
    <table class="table table-borderless">

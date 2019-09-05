@@ -18,6 +18,9 @@ public function update($date,$name,$pathfile){
   $except = sizeof($date);
   $index = 0 ;
 
+  if(empty($pathfile)){
+    return "mauvaise extension";
+  }
 
   foreach ($date as $key => $value) {
       $stmt = $this->contDB->prepare('INSERT INTO users (Date,CheminFichier,NomFichier) VALUES (:Date,:CheminFichier,:NomFichier)');
