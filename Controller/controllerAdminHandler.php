@@ -28,15 +28,16 @@ function str_filtre($str)
 
 function postFile($mycontAdmin){
 
-  $pattern= "/name[0-9]*/";
-  $pattern1= "/date[0-9]*/";
-  $pattern2= "/file[0-9]*/";
-  $pattern3= "/feuille[0-9]*/";
-  $return ;
+  $pattern = "/name[0-9]*/";
+  $pattern1 = "/date[0-9]*/";
+  $pattern2 = "/file[0-9]*/";
+  $pattern3 = "/feuille[0-9]*/";
+  $return = NULL ;
   $uploaded = array();
-  $date=array();
-  $name=array();
-  $feuille=array();
+  $date = array();
+  $name = array();
+  $feuille = array();
+
 
   foreach ($_FILES as $key => $value){
     if (preg_match($pattern2,$key)){
@@ -52,7 +53,7 @@ function postFile($mycontAdmin){
             $sourcePath = $value['tmp_name'];
             $targetPath = "uploads/".$filename;
             if(move_uploaded_file($sourcePath,$targetPath)){
-                array_push($uploaded,$filename);
+               array_push($uploaded,$filename);
             }
           }
       }
@@ -76,18 +77,27 @@ function postFile($mycontAdmin){
     if ( $return == "ok") {
           foreach ($uploaded as $key => $value) {
             $valueHtml = preg_replace('/\\.[^.\\s]{3,4}$/', '', $value);
+            preg_match('/\\.[^.\\s]{3,4}$/',$value,$ext);
+
+            $value = addcslashes($value, " (.) ");
+            $valueHtml = addcslashes($valueHtml, " (.) ");
+
             $output=shell_exec('mkdir ../View/display/'.$value.' 2>&1');
-            $output1=shell_exec('cd uploads && cp '.$value.' ../../View/display/'.$value.' 2>&1');
-            $output2=shell_exec('cd ../View/display/'.$value.' && export HOME=/tmp && soffice --headless --convert-to html '.$value.' && rm '.$value.' 2>&1');
+
+            if ($ext[0] != ".xlsm") {
+              $output=shell_exec('cd uploads && export HOME=/tmp && soffice --headless --convert-to xlsm '.$value.' 2>&1');
+              $output=shell_exec('cd uploads && rm '.$value.' 2>&1');
+              $value2 = $valueHtml.'.xlsm';
+            }else {
+              $value2=$value;
+            }
+            $output1=shell_exec('cd uploads && cp '.$value2.' ../../View/display/'.$value.' 2>&1');
+            $output2=shell_exec('cd ../View/display/'.$value.' && export HOME=/tmp && soffice --headless --convert-to html '.$value2.' && rm '.$value2.' 2>&1');
             $output3=shell_exec('cd ../View/display/ && ./script.py '.$value.'/'.$valueHtml.'.html '.$value.' '.$valueHtml.'1 '.$feuille[$key].' 2>&1');
             $output4=shell_exec('cd ../View/display/'.$value.' && rm '.$valueHtml.'.html 2>&1');
-            print_r($output3);
-            print_r($output4);
-
 
         }
     }
-
   echo $return;
 }
 

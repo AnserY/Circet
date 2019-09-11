@@ -8,10 +8,15 @@ $userCon = new controllerUser ;
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <link rel="stylesheet" href="Media/css/css1.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="Media/js/js5.js" type="text/javascript"></script>
     <script src="Media/js/js6.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="Media/css/css1.css">
+    <script src="Media/js/js7.js" type="text/javascript"></script>
+
 
 
     <title>CircetUser</title>
@@ -35,7 +40,7 @@ $userCon = new controllerUser ;
 
   <span style="font-size:18px;color:#EA4335"> <?php echo $userCon->readNote(); ?> </span>
   <div class="d-flex flex-row-reverse">
-    <input type="text" id="recherche" name="recherche" placeholder="Recherche" class="p-2">
+    <input type="text" id="date" name="recherche" placeholder="Recherche" class="p-2">
   </div>
 
 <pre> </pre>

@@ -9,8 +9,8 @@ require_once(__ROOT__.'/Model/model.php');
 */
 class controller {
 
-public $mod ;
-public $contDB ;
+public $mod = NULL ;
+public $contDB = NULL;
 
 /*
 * Crée le model et init la variable contDB .

@@ -85,7 +85,7 @@
           <input type="checkbox" id="check" aria-label="Checkbox for following text input">
           <label for="">Mettre une note sans envoyer de fichier</label>
     <pre></pre>
-<button type="submit" name="submit" class="btn btn-primary "> Mettre en ligne </button>
+<button type="submit" name="submit" class="btn btn-secondary "> Mettre en ligne </button>
 
 </form>
 

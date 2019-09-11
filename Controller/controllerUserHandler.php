@@ -8,8 +8,10 @@ function download($id){
 
   $mycontUser = new controllerUser;
   $result = $mycontUser->findFile($id);
-  $path= 'uploads/'.$result[0]['CheminFichier'];
-  $file=basename($path);
+  $result = preg_replace('/\\.[^.\\s]{3,4}$/','.xlsm',$result[0]['CheminFichier']);
+  $path = 'uploads/'.$result;
+
+  $file = basename($path);
 
       if(file_exists($path)){
 

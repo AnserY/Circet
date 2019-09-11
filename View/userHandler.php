@@ -35,7 +35,7 @@ $userHandlerCon = new controllerUser ;
        <?php endforeach; ?>
           <?php $fileWithoutExt = preg_replace('/\\.[^.\\s]{3,4}$/', '', $values['CheminFichier']); ?>
            <th scope="row"><a href="<?php echo 'display/'.$values['CheminFichier'].'/'.$fileWithoutExt.'1.html'; ?>" target="_blank"> Afficher </th>
-           <th scope="row"><a href="<?php echo 'Controller/controllerUserHandler.php?id='.$values['id'];?>"> Télecharger </a></th>
+           <th scope="row"><a href="<?php echo 'Controller/controllerUserHandler.php?id='.urlencode($values['id']);?>"> Télecharger </a></th>
      </tr>
    <?php endforeach; ?>
 
@@ -43,10 +43,6 @@ $userHandlerCon = new controllerUser ;
 </tbody>
 </table>
 
+</body>
 
-
-
-
-
-  </body>
 </html>
