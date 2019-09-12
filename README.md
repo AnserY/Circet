@@ -20,7 +20,7 @@ Utilisation du pattern MVC avec quelques touche personnelles :
 
 ## Prérequis
 
-  - PHP : l'application tourne sur PHP7.0.33 .
+  - PHP : l'application tourne sous PHP7.0.33 .
   - Base de donne :<br/>
 
     Script de creation de la base de donne :
