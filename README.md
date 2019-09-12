@@ -37,7 +37,6 @@ Utilisation du pattern MVC avec quelques touche personnelles :
     ) ENGINE=MyISAM DEFAULT CHARSET=utf8
 
     ```
-   - Différents software :
-        1 - python2.7 : copié le bin dans /usr/bin/ , ou bien modifier la premier ligne du script python qui ce trouva dans /View/display/script.py.
+   - Différents software :<br/>
+        1 - python2.7 : copié le bin dans /usr/bin/ , ou bien modifier la premier ligne du script python qui ce trouva dans /View/display/script.py.<br/>
         2- soffice : la version 6.2 de LibreOffice et requis .  
-   
