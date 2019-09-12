@@ -33,11 +33,8 @@ try {
 
 
 } 	catch(PDOException $e){
-		if (Conf::$debug >= 1) {
-		     die($e->getMessage());
-		}else{
-			die('Imposible de se connecter à la base de donnée!!!');
-		}
+				die('Imposible de se connecter à la base de donnée!!!');
+		
 	}
 
 

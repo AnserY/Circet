@@ -20,6 +20,7 @@ Utilisation du pattern MVC avec quelques touche personnelles :
 
 ## Prérequis
 
+  - PHP : l'application tourne sur PHP7.0.33 .
   - Base de donne :<br/>
 
     Script de creation de la base de donne :
@@ -36,3 +37,7 @@ Utilisation du pattern MVC avec quelques touche personnelles :
     ) ENGINE=MyISAM DEFAULT CHARSET=utf8
 
     ```
+   - Différents software :
+        1 - python2.7 : copié le bin dans /usr/bin/ , ou bien modifier la premier ligne du script python qui ce trouva dans /View/display/script.py.
+        2- soffice : la version 6.2 de LibreOffice et requis .  
+   
